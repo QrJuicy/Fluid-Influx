@@ -10,6 +10,8 @@ public class Movement : MonoBehaviour
     [SerializeField] float movSpeed = 5f;
     [SerializeField] float jumpForce = 5f;
 
+    [SerializeField] float fallSpeed = 0f;
+
     private float horizontalInput;
     [SerializeField] Transform orientation;
 
@@ -24,18 +26,36 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        
+
+
         //Moving the x axis position
         movingXaxis();
 
+
         //Jumping
+        jumpUp();
+
+        //Jump falling
+        jumpFall();
+    }
+
+    private void jumpFall()
+    {
+        if (myRigidbody.velocity.y < 0)
+        {
+            myRigidbody.AddForce(Vector3.down * fallSpeed, ForceMode.Force);
+        }
+        isOnGround = false;
+    }
+
+    private void jumpUp()
+    {
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) && isOnGround == true)
         {
             myRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isOnGround = false;
         }
     }
+
     private void FixedUpdate()
     {
         MovePlayer();
