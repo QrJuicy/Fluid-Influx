@@ -6,7 +6,12 @@ public class Movement : MonoBehaviour
 {
     //Variables
     Rigidbody myRigidbody;
-    [SerializeField] float movSpeed = 0f;
+    private bool isOnGround = true;
+    [SerializeField] float movSpeed = 5f;
+    [SerializeField] float jumpForce = 5f;
+
+
+    
     
     // Start is called before the first frame update
     void Start()
@@ -17,21 +22,17 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         
+        //Moving the x axis position
+        transform.Translate(Vector3.right * Time.deltaTime * movSpeed * Input.GetAxis("Horizontal"));
+
+        //Jumping
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) && isOnGround == true)
+        {
+            myRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isOnGround = false;
+        }
     }
 
-    void XMovement()
-    {
-        /*if
-        (
-            Input.GetKey(KeyCode.D) ||
-            Input.GetKey(KeyCode.RightArrow)
-        )*/
-        //{
-            float xValue =  Input.GetAxis("Horizontal") * movSpeed * Time.deltaTime;
-           // float zValue =  Input.GetAxis("Horizontal") * movSpeed * Time.deltaTime;
-
-            transform.Translate(xValue, 0, 0/*zValue*/);
-        //}
-    }
 }
