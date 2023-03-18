@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4876,6 +4876,11 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!4 &1678592098 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6229727926838614540, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
+  m_PrefabInstance: {fileID: 6229727925591894530}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1815870617
 GameObject:
   m_ObjectHideFlags: 0
@@ -9464,17 +9469,37 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1348144326484209796, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
+      propertyPath: m_Drag
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348144326484209796, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348144326484209796, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348144326484209796, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
       propertyPath: m_Constraints
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 1348144326484209796, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3690507863117942698, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
       propertyPath: movSpeed
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3690507863117942698, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
       propertyPath: jumpForce
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3690507863117942698, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
+      propertyPath: orientation
+      value: 
+      objectReference: {fileID: 1678592098}
     - target: {fileID: 6229727926838614536, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
       propertyPath: m_Name
       value: Player
