@@ -9493,8 +9493,12 @@ PrefabInstance:
       value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 1348144326484209796, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348144326484209796, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
       propertyPath: m_CollisionDetection
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3690507863117942698, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
       propertyPath: movSpeed
@@ -9506,7 +9510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3690507863117942698, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
       propertyPath: jumpForce
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3690507863117942698, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
       propertyPath: groundDrag
@@ -9534,11 +9538,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6229727926838614540, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.68
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 6229727926838614540, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.28
+      value: 22.14
       objectReference: {fileID: 0}
     - target: {fileID: 6229727926838614540, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
       propertyPath: m_LocalPosition.z

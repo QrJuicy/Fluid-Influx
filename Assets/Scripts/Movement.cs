@@ -41,7 +41,6 @@ public class Movement : MonoBehaviour
         dragWhenMoving();
         //Moving the x axis position
         movingXaxis();
-        SpeedControl();
 
         
 
@@ -59,10 +58,10 @@ public class Movement : MonoBehaviour
         
     }
 
-    //Pat help it doesnt detect grounded????? it keeps jumping
+
     private void jumpUp()
     {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) && grounded)
+        if (grounded && Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             myRigidbody.drag = 0;
             myRigidbody.velocity =new Vector3(myRigidbody.velocity.x , 0f , myRigidbody.velocity.z);
@@ -76,7 +75,6 @@ public class Movement : MonoBehaviour
         grounded = Physics.Raycast(transform.position, Vector3.down,playerHeight * 0.5f + 0.2f , Ground);
     }
 
-    //But it detects grounded on this one??????
     private void dragWhenMoving()
     {
         if(grounded)
@@ -87,15 +85,6 @@ public class Movement : MonoBehaviour
         } else
         {
             myRigidbody.drag = 0;
-        }
-    }
-    private void SpeedControl()
-    {
-        Vector3 flatVel = new Vector3 (myRigidbody.velocity.x , myRigidbody.velocity.y, 0f);
-        if(flatVel.magnitude > movSpeed)
-        {
-            Vector3 limitedVel = flatVel.normalized * movSpeed;
-            myRigidbody.velocity = new Vector3(limitedVel.x , myRigidbody.velocity.y, myRigidbody.velocity.z);
         }
     }
 
