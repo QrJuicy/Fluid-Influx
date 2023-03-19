@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
     [SerializeField] float jumpForce;
     private float horizontalInput;
     [SerializeField] Transform orientation;
-
+    
 
     [Header("Ground checking")]
     [SerializeField] float playerHeight;
@@ -47,7 +47,7 @@ public class Movement : MonoBehaviour
 
     private void jumpUp()
     {
-        if (grounded && Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+        if (grounded && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)))
         {
             myRigidbody.drag = 0;
             myRigidbody.velocity =new Vector3(myRigidbody.velocity.x , 0f , myRigidbody.velocity.z);
