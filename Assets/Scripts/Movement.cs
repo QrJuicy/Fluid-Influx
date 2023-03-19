@@ -10,8 +10,6 @@ public class Movement : MonoBehaviour
     [Header("Movement")] //to know what type of variables do we use
     [SerializeField] float movSpeed;
     [SerializeField] float jumpForce;
-    [SerializeField] float airMultiplier;
-    [SerializeField] float fallSpeed;
     private float horizontalInput;
     [SerializeField] Transform orientation;
 
@@ -30,34 +28,22 @@ public class Movement : MonoBehaviour
         myRigidbody = gameObject.GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         groundChecking();
-
-        //Jumping
-        jumpUp();
-
         dragWhenMoving();
-        //Moving the x axis position
         movingXaxis();
+    }
 
-        
-
-        //Jump falling
-        //jumpFall();
+    void FixedUpdate()
+    {
+        MovePlayer();
+        airMoveLimit();
+        jumpUp();
     }
 
     //Jumping
-    private void jumpFall()
-    {
-        if (myRigidbody.velocity.y < 0)
-        {
-            myRigidbody.AddForce(Vector3.down * fallSpeed, ForceMode.Force);
-        }
-        
-    }
-
 
     private void jumpUp()
     {
@@ -65,23 +51,31 @@ public class Movement : MonoBehaviour
         {
             myRigidbody.drag = 0;
             myRigidbody.velocity =new Vector3(myRigidbody.velocity.x , 0f , myRigidbody.velocity.z);
-            myRigidbody.AddForce(transform.up *jumpForce, ForceMode.Impulse);
+            myRigidbody.AddForce(transform.up *jumpForce , ForceMode.Impulse);
+        }
+    }
+
+    private void airMoveLimit()
+    {
+        if(!grounded && myRigidbody.velocity.x > movSpeed || myRigidbody.velocity.x < -movSpeed)
+        {
+            
+                myRigidbody.velocity = new Vector3(myRigidbody.velocity.x * 0.8f , myRigidbody.velocity.y , myRigidbody.velocity.z);
+
         }
     }
 
     //detecting if you are grounded
     private void groundChecking()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down,playerHeight * 0.5f + 0.2f , Ground);
+        grounded = Physics.Raycast(transform.position, Vector3.down,playerHeight * 0.5f + 0.3f , Ground);
     }
 
     private void dragWhenMoving()
     {
         if(grounded)
         {
-            myRigidbody.drag = groundDrag;
-            Debug.Log("grounded");
-            
+            myRigidbody.drag = groundDrag; 
         } else
         {
             myRigidbody.drag = 0;
@@ -89,25 +83,14 @@ public class Movement : MonoBehaviour
     }
 
     //x axis movement
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
+  
     private void movingXaxis()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
     }
     private void MovePlayer()
     {
-        if(grounded)
-        {
-        myRigidbody.AddForce(orientation.right.normalized * horizontalInput * movSpeed * 10f, ForceMode.Force);
-        } else if(!grounded)
-        {
-            myRigidbody.AddForce(orientation.right.normalized * horizontalInput * movSpeed * 10f * airMultiplier, ForceMode.Force);
-        }
-
-        
+        myRigidbody.AddForce(orientation.right.normalized * horizontalInput * movSpeed  *  10f, ForceMode.Force);
     }
 
 }
