@@ -68,7 +68,7 @@ public class Movement : MonoBehaviour
     //detecting if you are grounded
     private void groundChecking()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down,playerHeight * 0.5f + 0.3f , Ground);
+        grounded = Physics.Raycast(transform.position, Vector3.down,playerHeight * 0.5f + 0.2f , Ground);
     }
 
     private void dragWhenMoving()
