@@ -6,14 +6,21 @@ public class Movement : MonoBehaviour
 {
     //Variables
     Rigidbody myRigidbody;
-    private bool isOnGround = true;
-    [SerializeField] float movSpeed = 5f;
-    [SerializeField] float jumpForce = 5f;
 
-    [SerializeField] float fallSpeed = 0f;
-
+    [Header("Movement")] //to know what type of variables do we use
+    [SerializeField] float movSpeed;
+    [SerializeField] float jumpForce;
+    [SerializeField] float airMultiplier;
+    [SerializeField] float fallSpeed;
     private float horizontalInput;
     [SerializeField] Transform orientation;
+
+
+    [Header("Ground checking")]
+    [SerializeField] float playerHeight;
+    [SerializeField] LayerMask Ground;
+    [SerializeField] float groundDrag;
+    private bool grounded;
 
     
     
@@ -26,57 +33,92 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-        //Moving the x axis position
-        movingXaxis();
-
+        groundChecking();
 
         //Jumping
         jumpUp();
 
+        dragWhenMoving();
+        //Moving the x axis position
+        movingXaxis();
+        SpeedControl();
+
+        
+
         //Jump falling
-        jumpFall();
+        //jumpFall();
     }
 
+    //Jumping
     private void jumpFall()
     {
         if (myRigidbody.velocity.y < 0)
         {
             myRigidbody.AddForce(Vector3.down * fallSpeed, ForceMode.Force);
         }
-        isOnGround = false;
+        
     }
 
+    //Pat help it doesnt detect grounded????? it keeps jumping
     private void jumpUp()
     {
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) && isOnGround == true)
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) && grounded)
         {
-            myRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            myRigidbody.drag = 0;
+            myRigidbody.velocity =new Vector3(myRigidbody.velocity.x , 0f , myRigidbody.velocity.z);
+            myRigidbody.AddForce(transform.up *jumpForce, ForceMode.Impulse);
         }
     }
 
+    //detecting if you are grounded
+    private void groundChecking()
+    {
+        grounded = Physics.Raycast(transform.position, Vector3.down,playerHeight * 0.5f + 0.2f , Ground);
+    }
+
+    //But it detects grounded on this one??????
+    private void dragWhenMoving()
+    {
+        if(grounded)
+        {
+            myRigidbody.drag = groundDrag;
+            Debug.Log("grounded");
+            
+        } else
+        {
+            myRigidbody.drag = 0;
+        }
+    }
+    private void SpeedControl()
+    {
+        Vector3 flatVel = new Vector3 (myRigidbody.velocity.x , myRigidbody.velocity.y, 0f);
+        if(flatVel.magnitude > movSpeed)
+        {
+            Vector3 limitedVel = flatVel.normalized * movSpeed;
+            myRigidbody.velocity = new Vector3(limitedVel.x , myRigidbody.velocity.y, myRigidbody.velocity.z);
+        }
+    }
+
+    //x axis movement
     private void FixedUpdate()
     {
         MovePlayer();
     }
-
     private void movingXaxis()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
-
     }
-
     private void MovePlayer()
     {
-        myRigidbody.AddForce(orientation.right.normalized * horizontalInput * movSpeed * 10f, ForceMode.Force);
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Ground"))
+        if(grounded)
         {
-        isOnGround = true; 
-        Debug.Log("istouching ground");
-        }   
+        myRigidbody.AddForce(orientation.right.normalized * horizontalInput * movSpeed * 10f, ForceMode.Force);
+        } else if(!grounded)
+        {
+            myRigidbody.AddForce(orientation.right.normalized * horizontalInput * movSpeed * 10f * airMultiplier, ForceMode.Force);
+        }
+
+        
     }
+
 }
