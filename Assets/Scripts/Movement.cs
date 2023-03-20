@@ -17,9 +17,13 @@ public class Movement : MonoBehaviour
     [Header("Ground checking")]
     [SerializeField] float playerHeight;
     [SerializeField] LayerMask Ground;
+    [SerializeField] LayerMask Stairs;
     [SerializeField] float groundDrag;
-    [SerializeField] bool boolLower;
-    [SerializeField] bool boolUpper;
+    private bool boolLower;
+    private bool boolUpper;
+    private bool boolLower2;
+    private bool boolUpper2;
+
     private bool grounded;
 
     [Header("fucking gravity (set to 0 if default)")]
@@ -28,7 +32,8 @@ public class Movement : MonoBehaviour
     [Header("Player Step Up Stairs")]
     [SerializeField] GameObject stepRayUpper;
     [SerializeField] GameObject stepRayLower;
-    [SerializeField] float stepHeight = 0.3f;
+    [SerializeField] GameObject stepRayUpper2;
+    [SerializeField] GameObject stepRayLower2;
     [SerializeField] float stepSmooth = 2f;
 
     
@@ -81,11 +86,11 @@ public class Movement : MonoBehaviour
     //detecting if you are grounded
     private void groundChecking()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down,playerHeight * 0.5f + 0.2f , Ground);
-        RaycastHit hitLower;
-        boolLower = Physics.Raycast(stepRayLower.transform.position, transform.TransformDirection(Vector3.left), out hitLower, 0.1f);
-        RaycastHit hitUpper;
-        boolUpper = Physics.Raycast(stepRayUpper.transform.position, transform.TransformDirection(Vector3.left), out hitUpper, 0.2f);
+        grounded = Physics.Raycast(transform.position, Vector3.down,playerHeight * 0.5f + 0.2f , Ground) ||Physics.Raycast(transform.position, Vector3.down,playerHeight * 0.5f + 0.2f , Stairs) ;
+        boolLower = Physics.Raycast(stepRayLower.transform.position, Vector3.left, 0.1f, Stairs);
+        boolUpper = Physics.Raycast(stepRayUpper.transform.position, Vector3.left, 0.1f, Stairs);
+        boolLower2 = Physics.Raycast(stepRayLower2.transform.position, Vector3.right, 0.1f, Stairs);
+        boolUpper2 = Physics.Raycast(stepRayUpper2.transform.position, Vector3.right, 0.1f, Stairs);
     }
 
     private void dragWhenMoving()
@@ -112,14 +117,12 @@ public class Movement : MonoBehaviour
     
         void stepClimb()
     {
-        if (boolLower == true)
+        if ((boolLower && !boolUpper)||(boolLower2 && !boolUpper2))
         {
-            Debug.Log("hitting lower");
-            if (boolUpper == false)
-            {
-                myRigidbody.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
-                Debug.Log("hittingUpper");
-            }
+          
+            myRigidbody.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
+            Debug.Log("hittingUpper");
+
         }
 
     }
