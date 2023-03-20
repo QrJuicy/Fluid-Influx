@@ -8,11 +8,11 @@ public class StatusHandler : MonoBehaviour
     //GetComponent
     Transform objectPosition;
 
-    //Timers
     [SerializeField] float deathTimer = 0f;
 
-
-
+    [SerializeField] float maxFluidity = 0f;
+    [SerializeField] float fluidity = 0f;
+    [SerializeField] float increaseRate = 0f;
 
     //Fall to death minimum
     [SerializeField] float fallToDeath = 0f;
@@ -38,8 +38,25 @@ public class StatusHandler : MonoBehaviour
     void Update()
     {
         FallToDeath();
-        //todo add hp bar system
+        FluidControl();
     }
+
+
+
+    //Fluid Control
+    private void FluidControl()
+    {
+        if (fluidity <= maxFluidity)
+        {
+            fluidity += increaseRate * Time.deltaTime;
+        }
+
+        if (fluidity >= maxFluidity)
+        {
+            DeclareDeath();
+        }
+    }
+
     //todo add DeclareWin function
 
 
@@ -48,26 +65,31 @@ public class StatusHandler : MonoBehaviour
     {
         if (objectPosition.position.y <= fallToDeath)
         {
-            Invoke("ReloadScene", deathTimer);
             DeclareDeath();
         }
     }
 
+
+
+    //Progress conditions
     private void DeclareDeath()
     {
         if (isAlive)
         {
             isAlive = false;
+            Invoke("ReloadScene", deathTimer);
             Debug.Log("You Died");
         }
     }
+    
+    
 
+    //Scene management
     void ReloadScene()
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentScene);
     }
-
     void NextScene()
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
