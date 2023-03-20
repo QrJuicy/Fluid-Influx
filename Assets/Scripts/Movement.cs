@@ -48,11 +48,11 @@ public class Movement : MonoBehaviour
 
     private void jumpUp()
     {
-        if (grounded && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)))
+        if (grounded && (Input.GetAxisRaw("Vertical") > 0))
         {
             myRigidbody.drag = 0;
             myRigidbody.velocity =new Vector3(myRigidbody.velocity.x , 0f , myRigidbody.velocity.z);
-            myRigidbody.AddForce(transform.up * jumpForce * Time.fixedDeltaTime, ForceMode.Impulse);
+            myRigidbody.AddForce(transform.up * jumpForce , ForceMode.Impulse);
         }
     }
 
@@ -60,7 +60,7 @@ public class Movement : MonoBehaviour
     {
         if(!grounded && (myRigidbody.velocity.x > movSpeed|| myRigidbody.velocity.x < -movSpeed ))
         {
-            Debug.Log("reached limit");
+
                 myRigidbody.velocity = new Vector3(myRigidbody.velocity.x * 0.8f , myRigidbody.velocity.y , myRigidbody.velocity.z);
 
         }
