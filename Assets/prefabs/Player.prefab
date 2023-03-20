@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689633145326312300}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.48, y: -0.443, z: -0.0016246252}
+  m_LocalPosition: {x: -0.48, y: -0.486, z: -0.0016246252}
   m_LocalScale: {x: 1, y: 0.6666667, z: 1}
   m_Children: []
   m_Father: {fileID: 6229727926838614540}
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movSpeed: 5
-  jumpForce: 12
+  jumpForce: 10
   orientation: {fileID: 6229727926838614540}
   playerHeight: 1.5
   Ground:
@@ -230,7 +230,7 @@ MonoBehaviour:
     m_Bits: 1024
   Stairs:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   groundDrag: 5
   customGravity: 0
   stepRayUpper: {fileID: 7536332646422605406}
