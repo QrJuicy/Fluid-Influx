@@ -9476,8 +9476,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3690507863117942698, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
+      propertyPath: movSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690507863117942698, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
       propertyPath: jumpForce
-      value: 10
+      value: 475
       objectReference: {fileID: 0}
     - target: {fileID: 3690507863117942698, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
       propertyPath: airMultiplier

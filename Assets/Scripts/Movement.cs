@@ -34,12 +34,13 @@ public class Movement : MonoBehaviour
         groundChecking();
         dragWhenMoving();
         movingXaxis();
+        airMoveLimit();
     }
 
     void FixedUpdate()
     {
         MovePlayer();
-        airMoveLimit();
+        
         jumpUp();
     }
 
@@ -51,15 +52,15 @@ public class Movement : MonoBehaviour
         {
             myRigidbody.drag = 0;
             myRigidbody.velocity =new Vector3(myRigidbody.velocity.x , 0f , myRigidbody.velocity.z);
-            myRigidbody.AddForce(transform.up *jumpForce , ForceMode.Impulse);
+            myRigidbody.AddForce(transform.up * jumpForce * Time.fixedDeltaTime, ForceMode.Impulse);
         }
     }
 
     private void airMoveLimit()
     {
-        if(!grounded && myRigidbody.velocity.x > movSpeed || myRigidbody.velocity.x < -movSpeed)
+        if(!grounded && (myRigidbody.velocity.x > movSpeed|| myRigidbody.velocity.x < -movSpeed ))
         {
-            
+            Debug.Log("reached limit");
                 myRigidbody.velocity = new Vector3(myRigidbody.velocity.x * 0.8f , myRigidbody.velocity.y , myRigidbody.velocity.z);
 
         }
@@ -90,7 +91,7 @@ public class Movement : MonoBehaviour
     }
     private void MovePlayer()
     {
-        myRigidbody.AddForce(orientation.right.normalized * horizontalInput * movSpeed  *  10f, ForceMode.Force);
+        myRigidbody.AddForce(orientation.right.normalized * horizontalInput * movSpeed  *  10f , ForceMode.Force);
     }
 
 }
