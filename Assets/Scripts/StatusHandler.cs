@@ -8,6 +8,7 @@ public class StatusHandler : MonoBehaviour
     //GetComponent
     Transform objectPosition;
 
+    [SerializeField] float winTimer = 0f;
     [SerializeField] float deathTimer = 0f;
 
     [SerializeField] float maxFluidity = 0f;
@@ -19,6 +20,7 @@ public class StatusHandler : MonoBehaviour
 
     //booleans
     bool isAlive = true;
+    bool transitioning = false;// to stop player from interacting with others while on timer
     // Start is called before the first frame update
     void Start()
     {
@@ -80,6 +82,12 @@ public class StatusHandler : MonoBehaviour
             Invoke("ReloadScene", deathTimer);
             Debug.Log("You Died");
         }
+    }
+
+    private void DeclareWin()
+    {
+        Invoke("NextScene", winTimer);
+        Debug.Log("ENtering Next Level");
     }
     
     
