@@ -9487,6 +9487,10 @@ PrefabInstance:
       propertyPath: airMultiplier
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 3690507863117942698, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
+      propertyPath: customgravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6229727926838614536, guid: ca0f639ffd3541a49aae55723cefaf69, type: 3}
       propertyPath: m_Name
       value: Player

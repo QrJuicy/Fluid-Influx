@@ -20,6 +20,9 @@ public class Movement : MonoBehaviour
     [SerializeField] float groundDrag;
     private bool grounded;
 
+    [Header("fucking gravity (set to 0 if default)")]
+    [SerializeField] float customgravity;
+
     
     
     // Start is called before the first frame update
@@ -39,6 +42,7 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
+        myRigidbody.AddForce(new Vector3(0, -1.0f, 0)*myRigidbody.mass*customgravity);
         MovePlayer();
         
         jumpUp();
@@ -48,7 +52,7 @@ public class Movement : MonoBehaviour
 
     private void jumpUp()
     {
-        if (grounded && (Input.GetAxisRaw("Vertical") > 0))
+        if (grounded && (Input.GetAxisRaw("Vertical") > 0 || Input.GetAxisRaw("Jump") > 0))
         {
             myRigidbody.drag = 0;
             myRigidbody.velocity =new Vector3(myRigidbody.velocity.x , 0f , myRigidbody.velocity.z);
