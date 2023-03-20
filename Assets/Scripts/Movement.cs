@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
     private bool grounded;
 
     [Header("fucking gravity (set to 0 if default)")]
-    [SerializeField] float customgravity;
+    [SerializeField] float customGravity;
 
     
     
@@ -42,7 +42,7 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        myRigidbody.AddForce(new Vector3(0, -1.0f, 0)*myRigidbody.mass*customgravity);
+        myRigidbody.AddForce(new Vector3(0, -1.0f, 0)*myRigidbody.mass*customGravity);
         MovePlayer();
         
         jumpUp();
