@@ -29,11 +29,33 @@ public class StatusHandler : MonoBehaviour
 
     void OnCollisionEnter(Collision other) 
     {
+        string objectTag = other.gameObject.tag;
         //todo add take damage when collide with heaters
         //todo add blue switch interaction
         //todo add red switch interaction
         //todo add lightbulb interaction
         //todo kill when got hit by piston
+        if(!transitioning)
+        {
+            switch(objectTag)
+            {
+                case "Dispenser":
+                    Debug.Log("This is Dispenser");
+                    break;
+
+                case "Heater":
+                    Debug.Log("This is Heater");
+                    break;
+                
+                case "B_Switch":
+                    Debug.Log("This is Blue Switch");
+                    break;
+
+                case "R_Switch":
+                    Debug.Log("This is Red Switch");
+                    break;
+            }
+        }
     }
 
     // Update is called once per frame

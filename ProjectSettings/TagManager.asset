@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Stairs
+  - B_Switch
+  - R_Switch
+  - C_Belt
+  - Piston
+  - Heater
+  - Dispenser
   layers:
   - Default
   - TransparentFX

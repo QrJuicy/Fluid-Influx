@@ -889,10 +889,10 @@ GameObject:
   - component: {fileID: 190894417}
   - component: {fileID: 190894416}
   - component: {fileID: 190894415}
-  - component: {fileID: 190894419}
+  - component: {fileID: 190894420}
   m_Layer: 0
   m_Name: Piston
-  m_TagString: Untagged
+  m_TagString: Piston
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -973,7 +973,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &190894419
+--- !u!114 &190894420
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -982,7 +982,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 190894414}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c89062f4defcc074abf474502f100d4b, type: 3}
+  m_Script: {fileID: 11500000, guid: a2c6fe19ac5a18b4e900635f55cbf5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &271268377
@@ -3311,10 +3311,10 @@ GameObject:
   - component: {fileID: 918477185}
   - component: {fileID: 918477184}
   - component: {fileID: 918477183}
-  - component: {fileID: 918477187}
+  - component: {fileID: 918477188}
   m_Layer: 0
   m_Name: Red Switch
-  m_TagString: Untagged
+  m_TagString: R_Switch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3395,7 +3395,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &918477187
+--- !u!114 &918477188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3404,7 +3404,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 918477182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c89062f4defcc074abf474502f100d4b, type: 3}
+  m_Script: {fileID: 11500000, guid: a2c6fe19ac5a18b4e900635f55cbf5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!43 &961045004
@@ -7181,10 +7181,10 @@ GameObject:
   - component: {fileID: 1072864388}
   - component: {fileID: 1072864387}
   - component: {fileID: 1072864386}
-  - component: {fileID: 1072864390}
+  - component: {fileID: 1072864391}
   m_Layer: 0
   m_Name: Conveyor Belt
-  m_TagString: Untagged
+  m_TagString: C_Belt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7265,7 +7265,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1072864390
+--- !u!114 &1072864391
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7274,7 +7274,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1072864385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c89062f4defcc074abf474502f100d4b, type: 3}
+  m_Script: {fileID: 11500000, guid: a2c6fe19ac5a18b4e900635f55cbf5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!43 &1122557446
@@ -7453,10 +7453,10 @@ GameObject:
   - component: {fileID: 1134140196}
   - component: {fileID: 1134140195}
   - component: {fileID: 1134140194}
-  - component: {fileID: 1134140198}
+  - component: {fileID: 1134140199}
   m_Layer: 0
   m_Name: Dispenser
-  m_TagString: Untagged
+  m_TagString: Dispenser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7537,7 +7537,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1134140198
+--- !u!114 &1134140199
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7546,7 +7546,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1134140193}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c89062f4defcc074abf474502f100d4b, type: 3}
+  m_Script: {fileID: 11500000, guid: a2c6fe19ac5a18b4e900635f55cbf5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1201269690
@@ -7561,10 +7561,10 @@ GameObject:
   - component: {fileID: 1201269693}
   - component: {fileID: 1201269692}
   - component: {fileID: 1201269691}
-  - component: {fileID: 1201269695}
+  - component: {fileID: 1201269696}
   m_Layer: 0
   m_Name: Heater
-  m_TagString: Untagged
+  m_TagString: Heater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7601,7 +7601,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 36ae6feca37fa1648a14daac1aaab72e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7645,7 +7645,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1201269695
+--- !u!114 &1201269696
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7654,7 +7654,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1201269690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c89062f4defcc074abf474502f100d4b, type: 3}
+  m_Script: {fileID: 11500000, guid: a2c6fe19ac5a18b4e900635f55cbf5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!43 &1292857953
@@ -11741,10 +11741,10 @@ GameObject:
   - component: {fileID: 1899501060}
   - component: {fileID: 1899501059}
   - component: {fileID: 1899501058}
-  - component: {fileID: 1899501062}
+  - component: {fileID: 1899501063}
   m_Layer: 0
   m_Name: Blue Switch
-  m_TagString: Untagged
+  m_TagString: B_Switch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11825,7 +11825,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1899501062
+--- !u!114 &1899501063
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
