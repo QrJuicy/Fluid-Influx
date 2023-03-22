@@ -21,6 +21,7 @@ public class StatusHandler : MonoBehaviour
     //booleans
     bool isAlive = true;
     bool transitioning = false;// to stop player from interacting with others while on timer
+    [SerializeField] bool readyToCrush = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +54,13 @@ public class StatusHandler : MonoBehaviour
 
                 case "R_Switch":
                     Debug.Log("This is Red Switch");
+                    break;
+
+                case "Piston":
+                    if (Movement.grounded == true)
+                    {
+                        Debug.Log("mashed");
+                    }
                     break;
             }
         }

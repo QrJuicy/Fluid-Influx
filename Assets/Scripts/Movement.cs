@@ -24,7 +24,7 @@ public class Movement : MonoBehaviour
     private bool boolLower2;
     private bool boolUpper2;
 
-    private bool grounded;
+    static public bool grounded;
 
     [Header("fucking gravity (set to 0 if default)")]
     [SerializeField] float customGravity;
