@@ -1,95 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1149589879055580309
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6316596357328288420}
-  m_Layer: 0
-  m_Name: stepRayLower2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6316596357328288420
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1149589879055580309}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4, y: -0.443, z: -0.0016246252}
-  m_LocalScale: {x: 1, y: 0.6666667, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6229727926838614540}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1689633145326312300
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6088140815377382298}
-  m_Layer: 0
-  m_Name: stepRayLower
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6088140815377382298
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689633145326312300}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.48, y: -0.486, z: -0.0016246252}
-  m_LocalScale: {x: 1, y: 0.6666667, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6229727926838614540}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4964980917030801951
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 858356702349495123}
-  m_Layer: 0
-  m_Name: stepRayUpper2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &858356702349495123
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4964980917030801951}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4, y: -0.08, z: -0.0016246252}
-  m_LocalScale: {x: 1, y: 0.6666667, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6229727926838614540}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6229727926838614536
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,6 +16,7 @@ GameObject:
   - component: {fileID: 3690507863117942698}
   - component: {fileID: 764903999}
   - component: {fileID: 764904000}
+  - component: {fileID: 7431061593251281346}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -122,12 +33,8 @@ Transform:
   m_GameObject: {fileID: 6229727926838614536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.68, y: 1.88, z: -0.031}
-  m_LocalScale: {x: 1, y: 1.5, z: 1}
-  m_Children:
-  - {fileID: 6088140815377382298}
-  - {fileID: 499881010150129962}
-  - {fileID: 6316596357328288420}
-  - {fileID: 858356702349495123}
+  m_LocalScale: {x: 1, y: 0.75, z: 1}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -138,7 +45,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6229727926838614536}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &6229727926838614542
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -189,7 +96,7 @@ BoxCollider:
   m_GameObject: {fileID: 6229727926838614536}
   m_Material: {fileID: 13400000, guid: 3a69a54dd1c9c484c827e71544bdb7c5, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -233,11 +140,6 @@ MonoBehaviour:
     m_Bits: 512
   groundDrag: 5
   customGravity: 0
-  stepRayUpper: {fileID: 7536332646422605406}
-  stepRayLower: {fileID: 1689633145326312300}
-  stepRayUpper2: {fileID: 4964980917030801951}
-  stepRayLower2: {fileID: 1149589879055580309}
-  stepSmooth: 7
 --- !u!114 &764903999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,8 +152,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e823b4a54987bf244a9d17d3f625d950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winTimer: 0
   deathTimer: 3
+  maxFluidity: 0
+  fluidity: 0
+  increaseRate: 0
   fallToDeath: -6
+  readyToCrush: 0
 --- !u!114 &764904000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,33 +171,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ebf7809e5cbd64e8383953ec779d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &7536332646422605406
-GameObject:
+--- !u!136 &7431061593251281346
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 499881010150129962}
-  m_Layer: 0
-  m_Name: stepRayUpper
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &499881010150129962
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7536332646422605406}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.48, y: -0.08, z: -0.0016246252}
-  m_LocalScale: {x: 1, y: 0.6666667, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6229727926838614540}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 6229727926838614536}
+  m_Material: {fileID: 13400000, guid: 3a69a54dd1c9c484c827e71544bdb7c5, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

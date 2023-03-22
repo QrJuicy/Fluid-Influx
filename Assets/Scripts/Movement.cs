@@ -19,23 +19,14 @@ public class Movement : MonoBehaviour
     [SerializeField] LayerMask Ground;
     [SerializeField] LayerMask Stairs;
     [SerializeField] float groundDrag;
-    private bool boolLower;
-    private bool boolUpper;
-    private bool boolLower2;
-    private bool boolUpper2;
+   
 
     static public bool grounded;
 
     [Header("fucking gravity (set to 0 if default)")]
     [SerializeField] float customGravity;
 
-    [Header("Player Step Up Stairs")]
-    [SerializeField] GameObject stepRayUpper;
-    [SerializeField] GameObject stepRayLower;
-    [SerializeField] GameObject stepRayUpper2;
-    [SerializeField] GameObject stepRayLower2;
-    [SerializeField] float stepSmooth = 2f;
-
+  
     
     
     // Start is called before the first frame update
@@ -50,7 +41,7 @@ public class Movement : MonoBehaviour
         dragWhenMoving();
         movingXaxis();
         airMoveLimit();
-        stepClimb();
+        //stepClimb();
     }
 
     void FixedUpdate()
@@ -87,10 +78,6 @@ public class Movement : MonoBehaviour
     private void groundChecking()
     {
         grounded = Physics.Raycast(transform.position, Vector3.down,playerHeight * 0.5f + 0.2f , Ground) ||Physics.Raycast(transform.position, Vector3.down,playerHeight * 0.5f + 0.2f , Stairs) ;
-        boolLower = Physics.Raycast(stepRayLower.transform.position, Vector3.left, 0.1f, Stairs);
-        boolUpper = Physics.Raycast(stepRayUpper.transform.position, Vector3.left, 0.1f, Stairs);
-        boolLower2 = Physics.Raycast(stepRayLower2.transform.position, Vector3.right, 0.1f, Stairs);
-        boolUpper2 = Physics.Raycast(stepRayUpper2.transform.position, Vector3.right, 0.1f, Stairs);
     }
 
     private void dragWhenMoving()
@@ -114,16 +101,5 @@ public class Movement : MonoBehaviour
     {
         myRigidbody.AddForce(orientation.right.normalized * horizontalInput * movSpeed  *  10f , ForceMode.Force);
     }
-    
-        void stepClimb()
-    {
-        if ((boolLower && !boolUpper)||(boolLower2 && !boolUpper2))
-        {
-          
-            myRigidbody.position -= new Vector3(0f, -stepSmooth * Time.deltaTime, 0f);
-            Debug.Log("hittingUpper");
-
-        }
-
-    }
+   
 }
