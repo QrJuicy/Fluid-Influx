@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6440715696427150137}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Piston
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059973308125259486}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.0592, y: 0.015, z: -0.0073}
-  m_LocalScale: {x: 1.9862365, y: 0.029107569, z: 1.514534}
+  m_LocalPosition: {x: 0.0592, y: 0.1937, z: -0.0038}
+  m_LocalScale: {x: 1.9292421, y: 0.35371897, z: 1.514534}
   m_Children: []
   m_Father: {fileID: 3066086395625895180}
   m_RootOrder: 4
@@ -124,7 +124,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5442536991299790175}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.0353355, y: -179.99998, z: 180}
 --- !u!1 &2433982260710485942
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,7 +331,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5442536991299790175}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.0353355, y: -179.99998, z: 180}
 --- !u!1 &4019484644946543675
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +391,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5442536991299790175}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.0353355, y: -179.99998, z: 180}
 --- !u!1 &5522524013666824152
 GameObject:
   m_ObjectHideFlags: 0
