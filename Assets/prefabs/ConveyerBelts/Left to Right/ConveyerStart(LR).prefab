@@ -353,6 +353,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  conveyorSpeed: {fileID: 4908485420353005275}
+  animationSpeed: 0
   direction: {x: 1, y: 0, z: 0}
   onBelt: []
 --- !u!1 &2520674734799743660

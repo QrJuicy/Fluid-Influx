@@ -6,14 +6,19 @@ using UnityEngine;
 public class ConveyorBelts : MonoBehaviour
 {
     [SerializeField] float speed;
-    //[SerializeField] float conveyorSpeed;
+    [SerializeField] Animator conveyorSpeed;
+    [SerializeField] float animationSpeed;
+
     [SerializeField] Vector3 direction;
     [SerializeField] List<GameObject> onBelt;
 
 
     //private Material material;
     
-     
+    private void Update()
+    {
+       conveyorSpeed.speed =  animationSpeed;
+    }
     
     private void FixedUpdate()
     {
@@ -21,6 +26,8 @@ public class ConveyorBelts : MonoBehaviour
         {
             Debug.Log("moving");
             onBelt[i].GetComponent<Rigidbody>().AddForce(speed * direction);
+            
+            onBelt[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
     }
 
@@ -32,6 +39,12 @@ public class ConveyorBelts : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        onBelt.Remove(collision.gameObject);
+           for (int i = 0 ; i <= onBelt.Count - 1; i++)
+        {
+           onBelt[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            onBelt.Remove(collision.gameObject);
+            
+           
+        }
     }
 }

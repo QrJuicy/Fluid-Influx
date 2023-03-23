@@ -746,12 +746,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3810255670931931326}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9986d422ea1411a4089677f37e1966e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  conveyorSpeed: {fileID: 7527698610512561650}
   direction: {x: 1, y: 0, z: 0}
   onBelt: []
 --- !u!1 &4270419577735702548
