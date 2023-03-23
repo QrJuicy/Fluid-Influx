@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ConveyorBelts : MonoBehaviour
 {
     [SerializeField] float speed;
     //[SerializeField] float conveyorSpeed;
     [SerializeField] Vector3 direction;
     [SerializeField] List<GameObject> onBelt;
+
 
     //private Material material;
     
