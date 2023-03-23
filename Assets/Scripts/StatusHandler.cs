@@ -8,25 +8,74 @@ public class StatusHandler : MonoBehaviour
     //GetComponent
     Transform objectPosition;
 
+    [Header("Timer")]
     [SerializeField] float winTimer = 0f;
     [SerializeField] float deathTimer = 0f;
 
+
+    [Header("Fluidity Control")]
     [SerializeField] float maxFluidity = 0f;
     [SerializeField] float fluidity = 0f;
     [SerializeField] float increaseRate = 0f;
+    [SerializeField] float staticIncreaseRate = 0f;
 
-    //Fall to death minimum
+
+    [Header("Effects Strenght")] 
+    [SerializeField] float heatPower = 0f;
+    [SerializeField] float heatDuration = 0f;
+    [SerializeField] float coldPower = 0f;
+    [SerializeField] float coldDuration = 0f;
+
+    [Header("Max Height to Live")]
     [SerializeField] float fallToDeath = 0f;
 
-    //booleans
-    bool isAlive = true;
-    bool transitioning = false;// to stop player from interacting with others while on timer
+
+    [Header("Boolean Tests")]
+    [SerializeField] bool isAlive = true;
+    [SerializeField] bool transitioning = false;// to stop player from interacting with others while on timer
+    [SerializeField] bool isHeating = false;
+    [SerializeField] bool isCooling = false;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         objectPosition = gameObject.GetComponent<Transform>();
     }
+    // Update is called once per frame
+    void Update()
+    {
+        FallToDeath();
+        FluidControl();
+        if(fluidity <=0)
+        {
+            fluidity = 0;
+        }
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        string objectTag = other.gameObject.tag;
+        if(!transitioning)
+        {
+            switch(objectTag)
+            {
+                case "Heater":
+                    Debug.Log("This is Heater");
+                    break;
 
+                case "B_Switch":
+                    isCooling = true;
+                    CoolingUp();
+                    break;
+
+                case "R_Switch":
+                    isHeating = true;
+                    HeatingUp();
+                    break;
+            }
+        }
+    }
     void OnCollisionEnter(Collision other) 
     {
         string objectTag = other.gameObject.tag;
@@ -34,7 +83,6 @@ public class StatusHandler : MonoBehaviour
         //todo add blue switch interaction
         //todo add red switch interaction
         //todo add lightbulb interaction
-        //todo kill when got hit by piston
         if(!transitioning)
         {
             switch(objectTag)
@@ -42,36 +90,50 @@ public class StatusHandler : MonoBehaviour
                 case "Dispenser":
                     Debug.Log("This is Dispenser");
                     break;
-
-                case "Heater":
-                    Debug.Log("This is Heater");
-                    break;
-                
-                case "B_Switch":
-                    Debug.Log("This is Blue Switch");
-                    break;
-
-                case "R_Switch":
-                    Debug.Log("This is Red Switch");
-                    break;
-
                 case "Piston":
-                    if (Movement.grounded == true)
-                    {
-                        Destroy(gameObject.GetComponent<MeshRenderer>());
-                        Destroy(gameObject.GetComponent<Movement>());
-                        DeclareDeath();
-                    }
+                    Crush();
                     break;
             }
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void HeatingUp()
     {
-        FallToDeath();
-        FluidControl();
+        if (isHeating)
+        {
+            isCooling = false;
+            increaseRate += heatPower;
+            Invoke("StopHeating", heatDuration);
+        }
+    }
+    void StopHeating()
+    {
+        isHeating = false;
+        increaseRate = staticIncreaseRate;
+    }
+    void CoolingUp()
+    {
+        if (isCooling)
+        {
+            isHeating = false;
+            increaseRate -= coldPower;
+            Invoke("StopHeating", coldDuration);
+        }
+    }
+    void StopCooling()
+    {
+        isCooling = false;
+        increaseRate = staticIncreaseRate;
+    }
+
+    private void Crush()
+    {
+        if (Movement.grounded == true)
+        {
+            Destroy(gameObject.GetComponent<MeshRenderer>());
+            Destroy(gameObject.GetComponent<Movement>());
+            DeclareDeath();
+        }
     }
 
 
@@ -90,8 +152,6 @@ public class StatusHandler : MonoBehaviour
         }
     }
 
-    //todo add DeclareWin function
-
 
 
     private void FallToDeath()
@@ -101,7 +161,6 @@ public class StatusHandler : MonoBehaviour
             DeclareDeath();
         }
     }
-
 
 
     //Progress conditions
