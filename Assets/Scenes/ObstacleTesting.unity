@@ -8003,7 +8003,7 @@ GameObject:
   - component: {fileID: 1374190716}
   m_Layer: 10
   m_Name: Obsticle 2
-  m_TagString: Piston
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
