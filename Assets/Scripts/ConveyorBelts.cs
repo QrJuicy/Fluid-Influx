@@ -10,7 +10,7 @@ public class ConveyorBelts : MonoBehaviour
     [SerializeField] float animationSpeed;
 
     [SerializeField] Vector3 direction;
-    public List<GameObject> onBelt;
+    [SerializeField] List<GameObject> onBelt;
 
 
     //private Material material;
@@ -26,20 +26,25 @@ public class ConveyorBelts : MonoBehaviour
         {
             Debug.Log("moving");
             onBelt[i].GetComponent<Rigidbody>().AddForce(speed * direction);
-        
+            
+            onBelt[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        
         onBelt.Add(collision.gameObject);
     }
 
-    
+
     private void OnCollisionExit(Collision collision)
     {
-        onBelt.Remove(collision.gameObject);
+           for (int i = 0 ; i <= onBelt.Count - 1; i++)
+        {
+           onBelt[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            onBelt.Remove(collision.gameObject);
+            
+           
+        }
     }
-    
 }

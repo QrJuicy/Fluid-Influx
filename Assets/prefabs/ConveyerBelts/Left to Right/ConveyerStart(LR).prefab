@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3886560054794504199}
   - component: {fileID: 4366104542169012669}
   - component: {fileID: 1999228325345043217}
+  - component: {fileID: 5595615153114484653}
   m_Layer: 10
   m_Name: ConveyerStart(LR)
   m_TagString: Untagged
@@ -339,6 +340,23 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &5595615153114484653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35465659104841674}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9986d422ea1411a4089677f37e1966e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 40
+  conveyorSpeed: {fileID: 4908485420353005275}
+  animationSpeed: 0
+  direction: {x: 1, y: 0, z: 0}
+  onBelt: []
 --- !u!1 &2520674734799743660
 GameObject:
   m_ObjectHideFlags: 0
