@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObstacleManager : MonoBehaviour
 {
+    [SerializeField] bool isDisabled = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,14 @@ public class ObstacleManager : MonoBehaviour
     void Update()
     {
         //todo add particle with switch statements and objectTag
+        if(isDisabled)
+        {
+            gameObject.GetComponent<Collider>().enabled = false;
+        }
+        else
+        {
+            gameObject.GetComponent<Collider>().enabled = true;
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -21,7 +30,7 @@ public class ObstacleManager : MonoBehaviour
         string objectTag = other.gameObject.tag;
         if (objectTag == "Player")
         {
-            //todo add switch statement for different obstacles
+            isDisabled = true;
             Debug.Log("Picked up");
         }
     }
