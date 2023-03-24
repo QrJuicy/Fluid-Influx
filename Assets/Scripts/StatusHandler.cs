@@ -25,6 +25,7 @@ public class StatusHandler : MonoBehaviour
     [SerializeField] float heatDuration = 0f;
     [SerializeField] float coldPower = 0f;
     [SerializeField] float coldDuration = 0f;
+    [SerializeField] float heaterDamage = 0f;
 
     [Header("Max Height to Live")]
     [SerializeField] float fallToDeath = 0f;
@@ -61,7 +62,7 @@ public class StatusHandler : MonoBehaviour
             switch(objectTag)
             {
                 case "Heater":
-                    Debug.Log("This is Heater");
+                    fluidity += heaterDamage;
                     break;
 
                 case "B_Switch":
@@ -80,8 +81,6 @@ public class StatusHandler : MonoBehaviour
     {
         string objectTag = other.gameObject.tag;
         //todo add take damage when collide with heaters
-        //todo add blue switch interaction
-        //todo add red switch interaction
         //todo add lightbulb interaction
         if(!transitioning)
         {
