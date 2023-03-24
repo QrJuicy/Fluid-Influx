@@ -26,7 +26,8 @@ public class Movement : MonoBehaviour
     [Header("fucking gravity (set to 0 if default)")]
     [SerializeField] float customGravity;
 
-  
+    public ConveyorBelts scriptConveyor;
+    public List<GameObject> onBelt;
     
     
     // Start is called before the first frame update
@@ -58,9 +59,17 @@ public class Movement : MonoBehaviour
     {
         if (grounded && (Input.GetAxisRaw("Vertical") > 0 || Input.GetAxisRaw("Jump") > 0))
         {
-            myRigidbody.drag = 0;
-            myRigidbody.velocity =new Vector3(myRigidbody.velocity.x , 0f , myRigidbody.velocity.z);
+		
+		
+		myRigidbody. constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | 				RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+		myRigidbody.velocity =new Vector3(myRigidbody.velocity.x , 0f , myRigidbody.velocity.z);
+		myRigidbody.drag = 0;
+            
             myRigidbody.AddForce(transform.up * jumpForce , ForceMode.Impulse);
+
+
+		
+           
         }
     }
 
