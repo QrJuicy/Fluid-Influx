@@ -87,7 +87,7 @@ public class StatusHandler : MonoBehaviour
             switch(objectTag)
             {
                 case "Dispenser":
-                    Debug.Log("This is Dispenser");
+                    DeclareWin();
                     break;
                 case "Piston":
                     Crush();
