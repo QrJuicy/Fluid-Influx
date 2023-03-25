@@ -27,7 +27,7 @@ public class ConveyorBelts : MonoBehaviour
             Debug.Log("moving");
             onBelt[i].GetComponent<Rigidbody>().AddForce(speed * direction);
             
-            onBelt[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            //onBelt[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         }
     }
 
@@ -41,7 +41,7 @@ public class ConveyorBelts : MonoBehaviour
     {
            for (int i = 0 ; i <= onBelt.Count - 1; i++)
         {
-           onBelt[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+           //onBelt[i].GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
             onBelt.Remove(collision.gameObject);
             
            
