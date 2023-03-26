@@ -17,7 +17,6 @@ public class Movement : MonoBehaviour
     [Header("Ground checking")]
     [SerializeField] float playerHeight;
     [SerializeField] LayerMask Ground;
-    [SerializeField] LayerMask Stairs;
     [SerializeField] float groundDrag;
    
 
@@ -26,8 +25,6 @@ public class Movement : MonoBehaviour
     [Header("fucking gravity (set to 0 if default)")]
     [SerializeField] float customGravity;
 
-    public ConveyorBelts scriptConveyor;
-    public List<GameObject> onBelt;
     
     
     // Start is called before the first frame update
@@ -86,7 +83,7 @@ public class Movement : MonoBehaviour
     //detecting if you are grounded
     private void groundChecking()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down,playerHeight * 0.5f + 0.2f , Ground) ||Physics.Raycast(transform.position, Vector3.down,playerHeight * 0.5f + 0.2f , Stairs) ;
+        grounded = Physics.Raycast(transform.position, Vector3.down,playerHeight * 0.5f + 0.2f , Ground) ;
     }
 
     private void dragWhenMoving()
